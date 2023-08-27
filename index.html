@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Document</title>
+</head>
+<body>
+
+<div class="mainDiv">
+  
+    <button class="button openButton">New Book</button>
+    <dialog class="modal" id="modal">
+      <div class="modalDiv">
+        <button class="button closeButton">&times;</button>
+        <form action="" id="mainForm" method="dialog">
+  
+          <label for="name">Book Name</label>
+          <input type="text" name="name" id="name">
+  
+          <label for="author">Author</label>
+          <input type="text" name="author" id="author">
+
+          <label for="pages">Number of Pages</label>
+          <input type="number" name="pages" id="pages">
+          
+          <input type="submit" value="submit">
+        </form>
+  
+      </div>
+  
+    </dialog>
+    <h1>Library</h1>
+    
+    <ol id="library">
+
+    </ol>
+
+</div>
+
+
+  <script src="./script.js"></script>
+</body>
+</html>
