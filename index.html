@@ -13,19 +13,19 @@
     <button class="button openButton">New Book</button>
     <dialog class="modal" id="modal">
       <div class="modalDiv">
-        <button class="button closeButton">&times;</button>
+        <button class="button closeButton">x</button>
         <form action="" id="mainForm" method="dialog">
   
           <label for="name">Book Name</label>
-          <input type="text" name="name" id="name">
+          <input type="text" name="name" id="name" required>
   
           <label for="author">Author</label>
-          <input type="text" name="author" id="author">
+          <input type="text" name="author" id="author" required>
 
           <label for="pages">Number of Pages</label>
-          <input type="number" name="pages" id="pages">
+          <input type="number" name="pages" id="pages" required>
           
-          <input type="submit" value="submit">
+          <button type="submit" class="submitButton">Submit</button>
         </form>
   
       </div>
@@ -33,9 +33,12 @@
     </dialog>
     <h1>Library</h1>
     
-    <ol id="library">
+
+    <div class="libraryContainer">
+      <ol class="library">
       
-    </ol>
+      </ol>
+    </div>
 
 </div>
 

@@ -12,6 +12,45 @@ closeModal.addEventListener('click', () => {
 })
 
 
+function updateLibraryView() {
+  // Getting the list element
+  let libraryParent = document.querySelector('.library')
+  libraryParent.textContent = '';
+
+  for (let i = libraryArray.length - 1; i >= 0; i--) {
+    const book = libraryArray[i];
+
+    let removeBookButton = document.createElement('button');
+    removeBookButton.classList.add('removeBookButton');
+    removeBookButton.textContent = 'x'
+    removeBookButton.addEventListener('click', () => {
+      handleBookRemoval(i);
+    })
+
+    let hasReadCheckmark = document.createElement('input');
+    hasReadCheckmark.type = "checkbox";
+    hasReadCheckmark.name = "dynamicCheckbox"
+    hasReadCheckmark.value = "check";
+    hasReadCheckmark.classList.add('hasRead')
+
+
+    let bookListElement = document.createElement('li');
+    let bookListTextContent = document.createElement('p');
+    bookListTextContent.textContent = `${book.title}, ${book.author}, ${book.pages} pages`
+
+
+    libraryParent.append(bookListElement);
+    bookListElement.append(bookListTextContent)
+    bookListElement.append(hasReadCheckmark)
+    bookListElement.append(removeBookButton)
+  }
+}
+
+function handleBookRemoval(index) {
+  libraryArray.splice(index, 1);
+  updateLibraryView();
+}
+
 
 
 
@@ -23,6 +62,7 @@ form.addEventListener('submit', (event) => {
   let title = document.querySelector('#name').value;
   let pages = document.querySelector('#pages').value;
   let author = document.querySelector('#author').value;
+  
 
   // Create the book
   let newBook = { title, pages, author }
@@ -37,21 +77,3 @@ form.addEventListener('submit', (event) => {
   modal.close();
 })
 
-function updateLibraryView() {
-  // Getting the list element
-  let libraryParent = document.querySelector('#library')
-  libraryParent.textContent = '';
-
-  for (let i = libraryArray.length - 1; i >= 0; i--) {
-    console.log(libraryArray.length - 1)
-    const book = libraryArray[i];
-    let bookListElement = document.createElement('li');
-    bookListElement.textContent = `${book.title}, ${book.author}, ${book.pages} pages.`
-
-    libraryParent.append(bookListElement);
-
-  }
-
-
-
-}
